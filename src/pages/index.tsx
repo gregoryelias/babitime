@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 
 function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
@@ -73,6 +74,14 @@ export default function Page() {
           <p className="mt-3 text-lg text-rose-900/80">
             ah hyah! 💞
           </p>
+          <div className="relative w-full h-100 mt-6 aspect-square">
+            <Image
+              src="/ceat.jpg"
+              alt="cuti ceati"
+              fill
+              className="object-cover rounded-xl"
+            />
+          </div>
         </div>
       </main>
     );
