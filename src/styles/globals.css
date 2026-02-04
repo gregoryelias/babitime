@@ -25,3 +25,52 @@
   0% { transform: rotate(0deg) scale(0.9); }
   100% { transform: rotate(var(--spin, 720deg)) scale(1.1); }
 }
+
+.burst {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.burst-piece {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  transform: rotate(calc(var(--i) * 25deg)) translateX(0);
+  animation: burst-out 900ms ease-out forwards;
+}
+
+.burst-piece::before {
+  content: "💖";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  filter: drop-shadow(0 6px 10px rgba(244, 63, 94, 0.35));
+}
+
+.burst-piece:nth-child(3n)::before {
+  content: "✨";
+}
+.burst-piece:nth-child(4n)::before {
+  content: "💞";
+}
+.burst-piece:nth-child(5n)::before {
+  content: "🌟";
+}
+
+@keyframes burst-out {
+  0% {
+    opacity: 1;
+    transform: rotate(calc(var(--i) * 25deg)) translateX(0) scale(0.9);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(calc(var(--i) * 25deg)) translateX(90px) scale(1.15);
+  }
+}
+
