@@ -84,7 +84,7 @@ export default function Page() {
 
           <div className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-2 text-rose-700 font-semibold shadow-sm border border-rose-200/60">
             <span className="animate-pulse">💖</span> Approved by the Ceati Council
-            <span>🌺</span>
+            <span className="animate-pulse">🌺</span>
           </div>
 
           <div className="mt-6 text-6xl animate-bob">😻💘😻</div>
@@ -168,7 +168,7 @@ export default function Page() {
 
         <div className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-2 text-rose-700 font-semibold shadow-sm border border-rose-200/60">
           <span className="animate-pulse">🌸</span> Official Babitime Proposal
-          <span>✨</span>
+          <span className="animate-pulse">✨</span>
         </div>
 
         <div className="mt-6 text-6xl animate-bob">🐱💝🐱</div>
