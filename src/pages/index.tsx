@@ -125,7 +125,7 @@ export default function Page() {
 
             {noClicks > 0 && (
               <p className="mt-3 text-sm text-rose-900/70">
-                {phrases[Math.min(noClicks - 1, phrases.length - 1)]}
+                {phrases[(noClicks - 1) % phrases.length]}
               </p>
             )}
           </div>
