@@ -297,7 +297,7 @@ export default function Page() {
                 i will protect u from all seadness and wauris.
               </p>
               <p className="mt-3">
-                i will give you all the kissis, huggies, and cuddlis in the
+                i will give you all the kissis, huggis, and cuddlis in the
                 world.
               </p>
               <p className="mt-3">
