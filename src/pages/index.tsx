@@ -82,7 +82,7 @@ function LetterModal({
           <div className="mt-6 flex items-center justify-between gap-3">
             <div className="inline-flex items-center gap-2 text-sm text-rose-900/60">
               <span className="pill">certified babi letter</span>
-              <span className="pill">lovi guarenteed</span>
+              <span className="pill">lovi guaranteed</span>
             </div>
 
             <button
