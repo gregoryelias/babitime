@@ -1,52 +1,109 @@
 @import "tailwindcss";
 
-@keyframes floaty {
-  0% {
-    transform: translate(0px, 0px) rotate(0deg);
-  }
-  50% {
-    transform: translate(var(--drift, 12px), -22px) rotate(6deg);
-  }
-  100% {
-    transform: translate(0px, 0px) rotate(0deg);
-  }
+/* =========================
+   BACKGROUND DECOR
+========================= */
+
+.soft-blobs {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(251, 113, 133, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 12%, rgba(236, 72, 153, 0.14), transparent 48%),
+    radial-gradient(circle at 30% 85%, rgba(244, 114, 182, 0.14), transparent 52%),
+    radial-gradient(circle at 70% 78%, rgba(251, 191, 36, 0.10), transparent 55%);
+  filter: blur(6px);
 }
 
-.animate-floaty {
-  animation-name: floaty;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+.paw-mask {
+  background-image:
+    radial-gradient(circle at 10px 10px, rgba(244, 63, 94, 0.9) 2px, transparent 3px),
+    radial-gradient(circle at 22px 6px, rgba(244, 63, 94, 0.8) 1.8px, transparent 3px),
+    radial-gradient(circle at 26px 16px, rgba(244, 63, 94, 0.8) 1.8px, transparent 3px),
+    radial-gradient(circle at 16px 22px, rgba(244, 63, 94, 0.8) 1.8px, transparent 3px),
+    radial-gradient(ellipse at 18px 14px, rgba(244, 63, 94, 0.65) 6px, transparent 7px);
+  background-size: 64px 64px;
+  opacity: 0.18;
 }
+
+/* =========================
+   FLOATING CUTIES
+========================= */
+
+@keyframes floaty2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(var(--drift, 18px), -26px) rotate(var(--spin, 6deg)); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-floaty2 {
+  animation: floaty2 ease-in-out infinite;
+  filter: drop-shadow(0 10px 14px rgba(244, 63, 94, 0.12));
+}
+
+/* =========================
+   SHOOTING STARS
+========================= */
 
 @keyframes shooting-star {
-  0% {
-    transform: translate(-10vw, 0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(140vw, -35vh) rotate(var(--spin, 260deg));
-    opacity: 0;
-  }
+  0% { transform: translate(-10vw, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translate(140vw, -35vh) rotate(var(--spin, 260deg)); opacity: 0; }
 }
 
 .animate-shooting-star {
-  animation-name: shooting-star;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  filter: drop-shadow(0 6px 10px rgba(244, 63, 94, 0.25));
+  animation: shooting-star linear infinite;
+  filter: drop-shadow(0 10px 16px rgba(244, 63, 94, 0.25));
 }
 
-@keyframes spinny-babi {
-  0% {
-    transform: rotate(0deg) scale(0.9);
-  }
-  100% {
-    transform: rotate(var(--spin, 720deg)) scale(1.1);
-  }
+/* =========================
+   MICRO ANIMATIONS
+========================= */
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
+
+.animate-bob {
+  animation: bob 2.2s ease-in-out infinite;
+}
+
+@keyframes shiver {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  50% { transform: translateX(1px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-shiver {
+  animation: shiver 240ms ease-in-out infinite;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.animate-pop {
+  animation: pop 520ms ease-out;
+}
+
+.wiggle-hover:hover {
+  animation: wiggle 520ms ease-in-out;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg) scale(1.02); }
+  25% { transform: rotate(-1.2deg) scale(1.03); }
+  50% { transform: rotate(1.2deg) scale(1.03); }
+  75% { transform: rotate(-0.8deg) scale(1.02); }
+  100% { transform: rotate(0deg) scale(1.02); }
+}
+
+/* =========================
+   BURST HEARTS
+========================= */
 
 .burst {
   position: absolute;
@@ -57,44 +114,27 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 10px;
-  height: 10px;
-  transform: rotate(calc(var(--i) * 25deg)) translateX(0);
   animation: burst-out 900ms ease-out forwards;
+  transform: rotate(calc(var(--i) * 22.5deg));
 }
 
 .burst-piece::before {
   content: "💖";
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translate(-50%, -50%) scale(0.9);
-  filter: drop-shadow(0 6px 10px rgba(244, 63, 94, 0.35));
+  filter: drop-shadow(0 8px 14px rgba(244, 63, 94, 0.35));
 }
 
-.burst-piece:nth-child(3n)::before {
-  content: "✨";
-}
-.burst-piece:nth-child(4n)::before {
-  content: "💞";
-}
-.burst-piece:nth-child(5n)::before {
-  content: "🌟";
-}
+.burst-piece:nth-child(3n)::before { content: "✨"; }
+.burst-piece:nth-child(4n)::before { content: "💞"; }
+.burst-piece:nth-child(5n)::before { content: "🌟"; }
 
 @keyframes burst-out {
-  0% {
-    opacity: 1;
-    transform: rotate(calc(var(--i) * 25deg)) translateX(0) scale(0.9);
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(calc(var(--i) * 25deg)) translateX(90px) scale(1.15);
-  }
+  from { transform: rotate(calc(var(--i) * 22.5deg)) translateX(0); opacity: 1; }
+  to { transform: rotate(calc(var(--i) * 22.5deg)) translateX(95px); opacity: 0; }
 }
+
+/* =========================
+   ENVLOPE
+========================= */
 
 .env {
   position: relative;
@@ -198,53 +238,43 @@
   }
 }
 
-.letter-modal {
-  position: relative;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(251, 113, 133, 0.28);
-  box-shadow: 0 30px 90px rgba(244, 63, 94, 0.22);
-  padding: 22px;
-  animation: letter-pop 240ms ease-out;
-  overflow: hidden;
+.env-openable:hover .env-flap {
+  transform: rotateX(35deg);
 }
 
-.letter-modal::before {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(251, 113, 133, 0.2),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(236, 72, 153, 0.18),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 30% 90%,
-      rgba(244, 114, 182, 0.18),
-      transparent 55%
-    );
-  filter: blur(10px);
-  pointer-events: none;
+/* =========================
+   LETTER MODAL
+========================= */
+
+.letter-modal {
+  position: relative;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 30px;
+  padding: 22px;
+  border: 1px solid rgba(251, 113, 133, 0.28);
+  box-shadow: 0 34px 100px rgba(244, 63, 94, 0.22);
+  animation: letter-pop 240ms ease-out;
 }
 
 @keyframes letter-pop {
-  from {
-    transform: translateY(10px) scale(0.98);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px) scale(1);
-    opacity: 1;
-  }
+  from { transform: translateY(10px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* Envelope hover wobble (optional) */
-.env-openable:hover .env-flap {
-  transform: rotateX(35deg);
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(251, 113, 133, 0.10);
+  border: 1px solid rgba(251, 113, 133, 0.18);
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
