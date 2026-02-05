@@ -358,7 +358,7 @@ export default function Page() {
         ) : (
           <>
             <div className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-2 text-rose-700 font-semibold shadow-sm border border-rose-200/60">
-              <span className="animate-pulse">🌸</span> Official Babitime
+              <span className="animate-pulse">🌸</span> Official babitine
               Proposal
               <span className="animate-pulse">✨</span>
             </div>
@@ -366,7 +366,7 @@ export default function Page() {
             <div className="mt-6 text-6xl animate-bob">🐱💝🐱</div>
 
             <h1 className="mt-4 text-4xl font-extrabold text-rose-700">
-              Will you be my babitime?
+              Will you be my babitine?
             </h1>
 
             <p className="mt-3 text-rose-900/70">
